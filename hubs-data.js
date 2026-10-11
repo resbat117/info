@@ -107,7 +107,7 @@ window.hubsData['hub1'] = `<div class="space-y-6">
                 </label>
                 <label class="flex items-start space-x-2 cursor-pointer">
                     <input type="checkbox" class="mt-1 rounded bg-tactical-bg border-tactical-border text-tactical-gold">
-                    <span><strong>3.4 (БІЄЦЬ):</strong> Пройти онлайн-тест «Адаптивність-200» [<a href="https://forms.gle/adaptivnist200" target="_blank" class="font-bold text-tactical-gold underline hover:opacity-80">Клацни тут, щоб відкрити тест</a>].</span>
+                    <span><strong>3.4 (БІЄЦЬ):</strong> Пройти онлайн-тест «Адаптивність-200» [<a href="https://docs.google.com/forms/d/e/1FAIpQLSc3IjFQJDaUCzULP5wQAyYI0B90mLfOf9oZGSkS8Y7y_RsQUA/viewform" target="_blank" class="font-bold text-tactical-gold underline hover:opacity-80">Клацни тут, щоб відкрити тест</a>].</span>
                 </label>
                 <label class="flex items-start space-x-2 cursor-pointer">
                     <input type="checkbox" class="mt-1 rounded bg-tactical-bg border-tactical-border text-tactical-gold">
@@ -563,29 +563,6 @@ window.hubsData['hub3'] = `<div class="space-y-6">
     <div class="bg-tactical-card border border-tactical-border p-6 rounded-lg">
         <h1 class="text-2xl font-bold text-tactical-gold mb-2">🧠 3. Мені важко / Втома та відновлення</h1>
         <p class="text-tactical-muted text-sm font-semibold">«Тут немає складних термінів, підручників чи псевдопсихологічних мудростей. Тільки чіткі відповіді від першої особи: обирай свій стан або свій режим служби й дивись, як тримати контроль.»</p>
-    </div>
-
-    <div class="bg-tactical-card border border-tactical-border p-4 rounded-lg space-y-2">
-        <h3 class="font-bold text-tactical-gold text-base">🎛️ Навігація за твоїм станом та режимом служби:</h3>
-        <ul class="text-xs text-tactical-muted space-y-1 grid grid-cols-1 md:grid-cols-2 gap-1">
-            <li>• [ 🔋 1. Як зрозуміти, наскільки я виснажений (Рівень батареї) ]</li>
-            <li>• [ 🦴 2. У мене болить тіло (Спина, очі, щелепа, голова, шлунок, ноги) ]</li>
-            <li>• [ 🌙 3. Я на чергуванні / у добовому наряді (Як не заснути та витримати зміну) ]</li>
-            <li>• [ 💻 4. Я працюю в штабі / з паперами (Як не закипіти від рутини, алгоритм «з кінця в початок») ]</li>
-            <li>• [ ⚖️ 5. Як правильно переключати мізки (Що реально допомагає, а що руйнує) ]</li>
-            <li>• [ 🍺 6. Хочу випити, щоб відключитися та заснути ]</li>
-            <li>• [ 💊 7. Хочу закинутися пігулками (знеболювальні, заспокійливі, снодійні) ]</li>
-            <li>• [ 🛑 8. НЕ СПРАВЛЯЄШСЯ? Медпункт, ППП та анонімна допомога ]</li>
-            <li>• [ 😒 9. Мене все і всі фоново бісять ]</li>
-            <li>• [ ⚡ 10. Я вибухаю гнівом за секунду ]</li>
-            <li>• [ 🫥 11. Я нічого не відчуваю, всередині порожнеча ]</li>
-            <li>• [ 😔 12. Мене гризе сором, що я роблю занадто мало ]</li>
-            <li>• [ 🌀 13. В голові крутиться одна й та сама дурна думка ]</li>
-            <li>• [ 🎬 14. Накривають важкі картинки й спогади з минулого ]</li>
-            <li>• [ 🚨 15. Накривають темні думки (Простіше не прокинутися) ]</li>
-            <li>• [ 🎭 16. Зовні в мене "все зашибісь", а всередині згарище (Прихований Фасад) ]</li>
-            <li>• [ 🫂 17. Бачу, що побратим на межі: як розпізнати маркери та врятувати життя ]</li>
-        </ul>
     </div>
 
     <div class="space-y-4">
