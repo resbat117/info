@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Єдине Вікно Підтримки Військовослужбовця | Сили ТрО ЗСУ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        tactical: {
+                            bg: '#121614',
+                            card: '#1C2320',
+                            border: '#2A3430',
+                            accent: '#4A6B5D',
+                            gold: '#D4AF37',
+                            alert: '#9B2C2C',
+                            text: '#E2E8F0',
+                            muted: '#A0AEC0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-tactical-bg text-tactical-text min-h-screen flex flex-col md:flex-row">
+
+    <!-- Mobile Header -->
+    <header class="md:hidden bg-tactical-card border-b border-tactical-border p-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl">🎖️</span>
+            <span class="font-bold text-sm tracking-wide uppercase text-tactical-gold">Єдине Вікно В/С</span>
+        </div>
+        <button id="menu-toggle" class="p-2 text-tactical-text focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="hidden md:flex flex-col w-full md:w-80 bg-tactical-card border-r border-tactical-border h-screen sticky top-0 z-40 overflow-y-auto">
+        <div class="p-5 border-b border-tactical-border bg-tactical-card">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🪖</span>
+                <div>
+                    <h1 class="font-bold text-base text-tactical-gold uppercase">Єдине Вікно</h1>
+                    <p class="text-xs text-tactical-muted">Навігатор підтримки в/с</p>
+                </div>
+            </div>
+            <!-- Live Search -->
+            <div class="mt-4 relative">
+                <input type="text" id="search-input" placeholder="Швидкий пошук (ВЛК, СЗЧ, рапорт)..." 
+                       class="w-full bg-tactical-bg border border-tactical-border rounded px-3 py-2 text-sm text-tactical-text focus:outline-none focus:border-tactical-gold">
+            </div>
+        </div>
+
+        <nav class="flex-1 p-3 space-y-1 text-sm" id="nav-container">
+            <button onclick="switchTab('main')" id="nav-main" class="nav-btn active-tab w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🏠</span><span>Головне Меню</span>
+            </button>
+            <button onclick="switchTab('hub1')" id="nav-hub1" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🚪</span><span>1. Я тільки прибув</span>
+            </button>
+            <button onclick="switchTab('hub2')" id="nav-hub2" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🏥</span><span>2. Захворів / Поранення / ВЛК</span>
+            </button>
+            <button onclick="switchTab('hub3')" id="nav-hub3" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🧠</span><span>3. Втома та відновлення</span>
+            </button>
+            <button onclick="switchTab('hub4')" id="nav-hub4" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🔀</span><span>4. Загроза СЗЧ / Зміна в/ч</span>
+            </button>
+            <button onclick="switchTab('hub5')" id="nav-hub5" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🛡️</span><span>5. Права та безпека</span>
+            </button>
+            <button onclick="switchTab('hub6')" id="nav-hub6" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🌴</span><span>6. Відпустка та обставини</span>
+            </button>
+            <button onclick="switchTab('hub7')" id="nav-hub7" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>💰</span><span>7. Гроші, пільги, гарантії</span>
+            </button>
+            <button onclick="switchTab('hub8')" id="nav-hub8" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>👨‍👩‍👧‍👦</span><span>8. Сім'я та стосунки</span>
+            </button>
+            <button onclick="switchTab('hub9')" id="nav-hub9" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>🎖️</span><span>9. Куточок сержанта</span>
+            </button>
+            <button onclick="switchTab('hub10')" id="nav-hub10" class="nav-btn w-full text-left px-3 py-2.5 rounded flex items-center space-x-2">
+                <span>📞</span><span>10. Гарячі лінії та контакти</span>
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 md:p-8 max-w-5xl mx-auto w-full overflow-y-auto">
+        
+        <!-- Search Results Container -->
+        <div id="search-results" class="hidden space-y-4 mb-6">
+            <h2 class="text-lg font-bold text-tactical-gold">Результати пошуку:</h2>
+            <div id="search-list" class="space-y-2"></div>
+        </div>
+
+        <!-- MAIN MENU PAGE -->
+        <section id="content-main" class="tab-content space-y-6">
+            <div class="bg-tactical-card border border-tactical-border p-6 rounded-lg">
+                <h1 class="text-2xl md:text-3xl font-bold text-tactical-gold mb-3">🪖 ЄДИНЕ ВІКНО ПІДТРИМКИ ВІЙСЬКОВОСЛУЖБОВЦЯ</h1>
+                <p class="text-tactical-muted">Це простір для кожного з нас. Тут немає дурних запитань чи «неважливих» проблем. Обирай свій випадок та отримуй чіткий, зрозумілий алгоритм дій.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div onclick="switchTab('hub1')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🚪 1. Я тільки прибув у частину</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Гра-чекліст, анкети Word, тест «Адаптивність-200», обхід служб.</p>
+                </div>
+                <div onclick="switchTab('hub2')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🏥 2. Я захворів / Поранення / ВЛК</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Госпіталь, Довідка ф. 5, ВЛК, ОФС, протезування та ліки.</p>
+                </div>
+                <div onclick="switchTab('hub3')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🧠 3. Мені важко психологічно / Втома</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Виснаження, біль у тілі, наряди, штаб, анонімна допомога.</p>
+                </div>
+                <div onclick="switchTab('hub4')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🔀 4. Думки про СЗЧ / Зміна частини</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Зупинка СЗЧ, переведення через «Армія+», повернення на службу.</p>
+                </div>
+                <div onclick="switchTab('hub5')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🛡️ 5. Права, обов’язки та безпека</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Статути, догани, виплати, месенджери, кібербезпека.</p>
+                </div>
+                <div onclick="switchTab('hub6')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🌴 6. Хочу у відпустку / Обставини</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Рапорти в «Армія+», дні на дорогу, виїзд за кордон.</p>
+                </div>
+                <div onclick="switchTab('hub7')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">💰 7. Гроші, пільги, гарантії, навчання</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Виплати, кредитний захист, кріоконсервація, курси L-1/NCO.</p>
+                </div>
+                <div onclick="switchTab('hub8')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">👨‍👩‍👧‍👦 8. Сім’я, стосунки та діти</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Стосунки на відстані, діти, догляд за родичами, втрата зв'язку.</p>
+                </div>
+                <div onclick="switchTab('hub9')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">🎖️ 9. Куточок сержанта</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Дисциплінарні важелі, профілактика СЗЧ, розмови 1-на-1.</p>
+                </div>
+                <div onclick="switchTab('hub10')" class="cursor-pointer bg-tactical-card border border-tactical-border p-4 rounded hover:border-tactical-gold transition">
+                    <h3 class="font-bold text-lg text-tactical-text">📞 10. Гарячі лінії та контакти</h3>
+                    <p class="text-xs text-tactical-muted mt-1">Гаряча лінія ТрО 0 800 507 028, МОУ 1512, Кабінет ППП.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Section -->
+        <section id="dynamic-content" class="space-y-6"></section>
+
+    </main>
+
+    <!-- App Logic Scripts -->
+    <script src="hubs-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
